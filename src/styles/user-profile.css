@@ -1,0 +1,13 @@
+.editProfile ul li {
+  margin: 10px 0;
+  border: 1px solid #cccccc;
+  padding: 5px 10px;
+}
+
+.editProfile .buttonAsLink {
+  justify-content: flex-end;
+}
+
+.editProfile .buttons {
+  justify-content: flex-end;
+}

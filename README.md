@@ -1,4 +1,5 @@
 # identity-app
+
 Building a ReactJS Sign-in and Sign-up application with Google OAuth, GraphQL, NodeJS and MongoDB
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -45,3 +46,28 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Adding a Router
+
+`yarn add react-router-dom`
+`yarn add @types/react-router-dom`
+
+## Adding Redux for state management
+
+`yarn add react-redux`
+`yarn add react-router-redux`
+`yarn add redux-actions`
+
+## Adding Types for redux
+
+`yarn add @types/redux-actions`
+`yarn add @types/react-router-redux`
+`yarn add @types/react-redux`
+
+## Adding Axios for Side Effects
+
+`yarn add axios`
+
+## Adding React CSS Transition
+
+`yarn add react-transition-group @types/react-transition-group`

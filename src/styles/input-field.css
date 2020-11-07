@@ -1,0 +1,142 @@
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box; /* to avoid bleeding thru the parent div */
+  font-size: 18px;
+}
+
+label {
+  font-size: 16px;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+label.error {
+  color: #eb3434;
+}
+
+button {
+  font-size: 18px;
+  font-weight: 300;
+  border: none;
+  margin: 5px 0;
+  padding: 13px;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+}
+
+button:focus {
+  outline: 3px solid #ec8805;
+}
+
+button:disabled {
+  cursor: progress;
+}
+
+.primary button {
+  color: #fff;
+  background-color: #0065ff;
+}
+
+.secondary button {
+  background-color: #b3b6b9;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Spinner */
+.primary button:after {
+  content: "";
+  padding-right: 22px;
+}
+
+.spinner-inactive {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.spinner-active {
+  display: inline-block;
+  padding: 3px;
+  border: 3px solid #f19a29; /* Light orange */
+  border-top: 3px solid transparent; /* Blue */
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  animation: spin 2s linear infinite;
+  vertical-align: top;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.buttonAsLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttonAsLink button {
+  background: none;
+  border: none;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: #0566f9;
+  width: auto;
+  cursor: pointer;
+}
+
+.buttonAsLink button:focus {
+  outline: 2px solid;
+  outline-offset: 3px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* default is center | override */
+  align-items: center;
+}
+
+.buttons button {
+  margin-right: 10px;
+  width: auto;
+}
+
+form > div {
+  margin-bottom: 5px;
+}
+
+form > div > a {
+  font-size: 14px;
+}
+
+form .field-error {
+  margin-top: 1px;
+  min-height: 25px;
+  font-size: 14px;
+  color: #eb3434;
+}
