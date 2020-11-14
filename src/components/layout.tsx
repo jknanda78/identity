@@ -31,10 +31,12 @@ const Layout: React.FunctionComponent<LayoutProps> = (props) => {
             </div>
           </CSSTransition>
         </section>
-        <header className="header">
-          <h1>{title}</h1>
-        </header>
-        <section className="main">{children}</section>
+        <main>
+          <header className="header">
+            <h1>{title}</h1>
+          </header>
+          <section className="main">{children}</section>
+        </main>
         <section className="footer">
           <footer>&#169; copyright 2020</footer>
         </section>
