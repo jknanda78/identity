@@ -37,6 +37,7 @@ button:disabled {
 }
 
 .primary button {
+  /* background-image: url("../assets/img/Walmart.png"); */
   color: #fff;
   background-color: #0065ff;
 }
