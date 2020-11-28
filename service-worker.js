@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/identity-app/precache-manifest.84c057f1ab24e7a8a6a05c5ea81502bb.js"
+  "/identity-app/precache-manifest.6640f18e484d7e0289ff2b679e4e07aa.js"
 );
 
 self.addEventListener('message', (event) => {
