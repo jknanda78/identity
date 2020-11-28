@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51bd0799ab84e7ea0c98a06522b68bd7",
+    "revision": "5af48369cff5fd0f0ba6f2b40572d341",
     "url": "/identity-app/index.html"
   },
   {
