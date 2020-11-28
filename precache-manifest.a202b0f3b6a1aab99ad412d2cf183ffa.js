@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51bd0799ab84e7ea0c98a06522b68bd7",
+    "revision": "857c65e056a67b6a245f5cd68af7a2ef",
     "url": "/identity-app/index.html"
   },
   {
-    "revision": "9d831a88c5f24a032587",
+    "revision": "a7aad63b1deecb42e89a",
     "url": "/identity-app/static/css/main.c88684c7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/identity-app/static/js/2.3619dea2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9d831a88c5f24a032587",
-    "url": "/identity-app/static/js/main.418bd9ac.chunk.js"
+    "revision": "a7aad63b1deecb42e89a",
+    "url": "/identity-app/static/js/main.33a567d9.chunk.js"
   },
   {
     "revision": "b498a345da66148610e0",
