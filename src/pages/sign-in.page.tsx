@@ -37,7 +37,7 @@ const SignInPage: React.FunctionComponent<SignInProps> = (props) => {
       notify={notify}
       notifyMessage={notifyMessage}
       notifyType={notifyType}
-      title="Sign in to your account 4221"
+      title="Sign in to your account"
     >
       <div>
         <Form id={formId} onSubmit={handleOnSubmit}>
