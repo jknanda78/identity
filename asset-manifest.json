@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/identity-app/static/css/main.c88684c7.chunk.css",
-    "main.js": "/identity-app/static/js/main.418bd9ac.chunk.js",
-    "main.js.map": "/identity-app/static/js/main.418bd9ac.chunk.js.map",
+    "main.js": "/identity-app/static/js/main.80f34423.chunk.js",
+    "main.js.map": "/identity-app/static/js/main.80f34423.chunk.js.map",
     "runtime-main.js": "/identity-app/static/js/runtime-main.9f2a6d9a.js",
     "runtime-main.js.map": "/identity-app/static/js/runtime-main.9f2a6d9a.js.map",
     "static/js/2.3619dea2.chunk.js": "/identity-app/static/js/2.3619dea2.chunk.js",
     "static/js/2.3619dea2.chunk.js.map": "/identity-app/static/js/2.3619dea2.chunk.js.map",
     "index.html": "/identity-app/index.html",
-    "precache-manifest.291aa4f75704a933383c7bdf652a977c.js": "/identity-app/precache-manifest.291aa4f75704a933383c7bdf652a977c.js",
+    "precache-manifest.04171a53eec01702fbc4a8d3e88eccf1.js": "/identity-app/precache-manifest.04171a53eec01702fbc4a8d3e88eccf1.js",
     "service-worker.js": "/identity-app/service-worker.js",
     "static/css/main.c88684c7.chunk.css.map": "/identity-app/static/css/main.c88684c7.chunk.css.map",
     "static/js/2.3619dea2.chunk.js.LICENSE.txt": "/identity-app/static/js/2.3619dea2.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.9f2a6d9a.js",
     "static/js/2.3619dea2.chunk.js",
     "static/css/main.c88684c7.chunk.css",
-    "static/js/main.418bd9ac.chunk.js"
+    "static/js/main.80f34423.chunk.js"
   ]
 }
