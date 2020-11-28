@@ -60,7 +60,7 @@ const SignInPage: React.FunctionComponent<SignInProps> = (props) => {
             type="button"
             id="createAccountLink"
             value="Create account"
-            onClick={() => push("/account/createAccount")}
+            onClick={() => push("/createAccount")}
           />
         </Form>
       </div>

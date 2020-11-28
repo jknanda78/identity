@@ -14,7 +14,7 @@ declare global {
 
 // Create history
 export const history = createBrowserHistory({
-  basename: process.env.PUBLIC_URL,
+  basename: "/identity-app",
 });
 
 // Create router middleware using history

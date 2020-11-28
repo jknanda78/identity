@@ -9,22 +9,22 @@ export default () => {
   return (
     <Router history={history}>
       <Switch>
-        <Redirect exact from="/" to="/account/login" />
+        <Redirect exact from="/" to="/login" />
         <Route
           exact
-          path="/account/login"
+          path="/login"
           component={SignIn}
           key="acount-signin"
         />
         <Route
           exact
-          path="/account/createAccount"
+          path="/createAccount"
           component={CreateAccount}
           key="acount-create-account"
         />
         <Route
           exact
-          path="/account/user/profile"
+          path="/user/profile"
           component={UserProfile}
           key="acount-user-profile"
         />
