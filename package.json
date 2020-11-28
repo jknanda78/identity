@@ -114,7 +114,7 @@
     "deploy": "npm run build && gh-pages -d build"
   },
   "proxy": "http://localhost:4000",
-  "homepage": "",
+  "homepage": "https://jknanda78.github.io/identity-app",
   "eslintConfig": {
     "extends": "react-app"
   },
