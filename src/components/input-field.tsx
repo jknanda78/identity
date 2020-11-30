@@ -1,6 +1,7 @@
 import React from "react";
+import TextField  from "@material-ui/core/TextField";
 import { FormModel } from "@models/form.model"
-import "@styles/input-field.css";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
 type FormInputProps = {
   actions: any;
@@ -15,6 +16,42 @@ type FormInputProps = {
   value?: string;
 };
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: "flex",
+      justifyContent: "center",
+      marginBottom: 5
+    }
+  }),
+);
+
+type CompProps = {
+  error?: boolean;
+  id: string;
+  type: "text" | "password" | "email";
+  label: string;
+  placeholder?: string;
+  blurHandler(event: React.FocusEvent<HTMLInputElement>): void;
+  changeHandler(event: React.ChangeEvent<HTMLInputElement>): void;
+};
+
+const Component: React.FunctionComponent<CompProps> = (props) => {
+  const { blurHandler, changeHandler, ...restofProps } = props;
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <TextField
+        {...restofProps}
+        onBlur={blurHandler}
+        onChange={changeHandler}
+        variant="outlined"
+      />
+    </div>
+  );
+};
+
 export default class FormInput extends React.Component<FormInputProps> {
   constructor(props: FormInputProps) {
     super(props);
@@ -27,7 +64,7 @@ export default class FormInput extends React.Component<FormInputProps> {
     });
   }
 
-  handleOnBlur = (e: React.SyntheticEvent<HTMLInputElement>) => {
+  handleOnBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { actions, formId, id: fieldId } = this.props;
 
     actions.onBlurInput({
@@ -36,9 +73,8 @@ export default class FormInput extends React.Component<FormInputProps> {
     });
   };
 
-  handleOnChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+  handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { actions, formId, id: fieldId } = this.props;
-
     actions.onChangeInput({
       formId,
       fieldId,
@@ -76,21 +112,15 @@ export default class FormInput extends React.Component<FormInputProps> {
     const fieldError: string = findError();
 
     return editable ? (
-      <div>
-        <label htmlFor={id} className={fieldError ? "error" : ""}>{label}</label>
-        <p>
-          <input
-            id={id}
-            placeholder={placeholder}
-            type={type}
-            onBlur={this.handleOnBlur}
-            onChange={this.handleOnChange}
-          />
-        </p>
-        <p className="field-error">
-          {fieldError ? fieldError : ""}
-        </p>
-      </div>
+      <Component
+        {...(fieldError ? { error: true } : {})}
+        type={type}
+        id={id}
+        label={label}
+        placeholder={placeholder}
+        blurHandler={this.handleOnBlur}
+        changeHandler={this.handleOnChange}
+      />
     ) : (
       <div>
         <label htmlFor={id}>{label}</label>

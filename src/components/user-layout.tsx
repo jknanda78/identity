@@ -6,9 +6,9 @@ import { title } from "process";
 type LayoutProps = {
   children: React.ReactNode;
   notify: boolean;
-  notifyMessage: String;
-  notifyType: String;
-  title: String;
+  notifyMessage: string;
+  notifyType: string;
+  title: string;
 };
 
 const UserLayout: React.FunctionComponent<LayoutProps> = (props) => {

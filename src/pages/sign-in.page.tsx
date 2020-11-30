@@ -57,7 +57,6 @@ const SignInPage: React.FunctionComponent<SignInProps> = (props) => {
           />
           <PrimaryButton type="submit" id="sign_in" value="Sign in" />
           <Link
-            type="button"
             id="createAccountLink"
             value="Create account"
             onClick={() => push("/createAccount")}

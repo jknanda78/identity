@@ -1,11 +1,11 @@
 export interface GlobalNotificationModel {
   notify: boolean;
-  notifyType: string;
+  notifyType: "error" | "warning" | "success" | "info";
   notifyMessage: string;
 }
 
 export interface GlobalNotificationPayload {
   notify: boolean;
-  notifyType: string;
+  notifyType: "error" | "warning" | "success" | "info";
   notifyMessage: string;
 }

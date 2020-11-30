@@ -7,13 +7,13 @@ import { UNSET_GLOBAL_NOTIFICATION, SET_GLOBAL_NOTIFICATION } from "../types";
 
 export type State = {
   notify: boolean;
-  notifyType: "error" | "success" | "info" | "";
+  notifyType: "error" | "success" | "info" | "warning";
   notifyMessage: string;
 };
 
 const initialState: State = {
   notify: false,
-  notifyType: "",
+  notifyType: "info",
   notifyMessage: "",
 };
 

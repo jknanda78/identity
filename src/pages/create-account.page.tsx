@@ -3,6 +3,9 @@ import Layout from "@components/layout";
 import InputField from "@components/containers/input-field.container";
 import { GlobalNotificationModel } from "@models/global-notification.model";
 import Link from "@components/containers/link.container";
+import PrimaryButton from "@components/containers/primary-button.container";
+import Form from "@components/containers/form.container";
+import { FormFields } from "@models/form.model";
 
 type CreateAccountProps = {
   actions: any;
@@ -12,19 +15,22 @@ type CreateAccountProps = {
 
 const CreateAccount: React.FunctionComponent<CreateAccountProps> = (props) => {
   const { push } = props.history;
+  const formId = "CREATE_ACCOUNT";
 
-  const handleOnSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-
-    // if (firstName && lastName && email && password) {
-    //   const response = await apis.createAccountApi(
-    //     firstName,
-    //     lastName,
-    //     email,
-    //     password,
-    //     props.actions
-    //   );
-    // }
+  // Form submit handler
+  const handleOnSubmit = (e: React.SyntheticEvent, fields: FormFields, isFormValid: boolean) => {
+    if (isFormValid) {
+      props.actions.httpRequest({
+        data: {
+          firstName: fields.first_name,
+          lastName: fields.last_name,
+          email: fields.email_address,
+          pwd: fields.pwd
+        },
+        method: "post",
+        url: "/account/createAccount"
+      });
+    }
   };
 
   const { notify, notifyMessage, notifyType } = props.notification;
@@ -37,41 +43,42 @@ const CreateAccount: React.FunctionComponent<CreateAccountProps> = (props) => {
       title="Create account"
     >
       <div>
-        <form onSubmit={handleOnSubmit}>
+        <Form id={formId} onSubmit={handleOnSubmit}>
           <InputField
+            formId={formId}
             id="first_name"
             label="First name (required)"
             type="text"
+            validator="default"
           />
           <InputField
+            formId={formId}
             id="last_name"
             label="Last name (required)"
             type="text"
+            validator="default"
           />
           <InputField
+            formId={formId}
             id="email_address"
             label="Email address (required)"
             type="email"
             validator="email"
           />
           <InputField
+            formId={formId}
             id="pwd"
             label="Password (required)"
             type="password"
             validator="password"
           />
-          <div className="primary">
-            <button type="submit" id="create_account" value="Create Account">
-              Create Account
-            </button>
-          </div>
+          <PrimaryButton type="submit" id="create_account" value="Create Account" />
           <Link
-            type="button"
             id="signInLink"
             value="Sign in"
             onClick={() => push("/login")}
           />
-        </form>
+        </Form>
       </div>
     </Layout>
   );

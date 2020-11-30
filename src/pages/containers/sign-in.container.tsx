@@ -7,8 +7,7 @@ import * as formActions from "@actions/form.action";
 import * as observableActions from "@actions/observable.action";
 
 // Add all the actions
-const actions: any = Object.assign(
-  {},
+const actions: any = Object.assign({},
   formActions,
   notifyActions,
   observableActions

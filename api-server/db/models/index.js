@@ -87,7 +87,7 @@ exports.createNewUser = (request) =>
       }),
       userProfile.insertOne({ userId, firstName, lastName, phoneNumber: "" })),
     ])
-      .then(() => createAuthToken(userId))
+      .then(() => exports.createAuthToken(userId))
       .then(({ authToken, sessionId }) => {
         request.user = {
           userId,

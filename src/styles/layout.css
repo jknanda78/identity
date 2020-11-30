@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 95%;
+  width: 98%;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -95,8 +95,14 @@
   font-weight: bold;
 }
 
-.standard .main {
-  padding: 5px;
+.standard main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.standard .content {
   width: 100%;
 }
 
@@ -119,19 +125,10 @@
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
   .standard .wrapper {
     justify-content: center;
-    width: 100%;
-  }
-
-  .standard .header {
-    font-size: 30px;
-  }
-
-  .notify {
     width: 320px;
   }
 
-  .standard .main,
-  .notification {
+  .notify {
     width: 320px;
   }
 }

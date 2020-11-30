@@ -1,5 +1,38 @@
 import React from "react";
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Field, FormModel, FormFields } from "@models/form.model";
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: "95%",
+      },
+    },
+  }),
+);
+
+type CompProps = {
+  id: string;
+  children: React.ReactNode;
+  submitHandler(event: React.FormEvent<HTMLFormElement>): void;
+};
+
+const Component: React.FunctionComponent<CompProps> = (props) => {
+  const { children, id: formId, submitHandler} = props;
+  const classes = useStyles();
+
+  return (
+      <form
+        id={formId}
+        className={classes.root}
+        onSubmit={submitHandler}
+      >
+        {children}
+      </form>
+  );
+};
 
 type FormProps = {
   actions: any;
@@ -49,12 +82,7 @@ class Form extends React.Component<FormProps, FormState> {
   };
 
   render() {
-    const { children, id: formId } = this.props;
-    return (
-      <form id={formId} onSubmit={this.handleOnSubmit}>
-        {children}
-      </form>
-    )
+    return (<Component submitHandler={this.handleOnSubmit} {...this.props} />);
   }
 }
 

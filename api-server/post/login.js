@@ -20,7 +20,7 @@ exports.login = (request, response) => {
       sessionHandler(request, response);
       response
         .status(200)
-        .send({ email, ...profile, challenge: "/account/user/profile" });
+        .send({ email, ...profile, challenge: "/user/profile" });
     })
     .catch((err) => response.status(403).send(err));
 };
