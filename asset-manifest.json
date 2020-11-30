@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/identity-app/static/css/main.c88684c7.chunk.css",
-    "main.js": "/identity-app/static/js/main.f76991ef.chunk.js",
-    "main.js.map": "/identity-app/static/js/main.f76991ef.chunk.js.map",
+    "main.css": "/identity-app/static/css/main.0425cab9.chunk.css",
+    "main.js": "/identity-app/static/js/main.db6963db.chunk.js",
+    "main.js.map": "/identity-app/static/js/main.db6963db.chunk.js.map",
     "runtime-main.js": "/identity-app/static/js/runtime-main.9f2a6d9a.js",
     "runtime-main.js.map": "/identity-app/static/js/runtime-main.9f2a6d9a.js.map",
-    "static/js/2.3619dea2.chunk.js": "/identity-app/static/js/2.3619dea2.chunk.js",
-    "static/js/2.3619dea2.chunk.js.map": "/identity-app/static/js/2.3619dea2.chunk.js.map",
+    "static/js/2.0770e371.chunk.js": "/identity-app/static/js/2.0770e371.chunk.js",
+    "static/js/2.0770e371.chunk.js.map": "/identity-app/static/js/2.0770e371.chunk.js.map",
     "index.html": "/identity-app/index.html",
-    "precache-manifest.6640f18e484d7e0289ff2b679e4e07aa.js": "/identity-app/precache-manifest.6640f18e484d7e0289ff2b679e4e07aa.js",
+    "precache-manifest.345a889d9d4829f84fb742c5b81fbc01.js": "/identity-app/precache-manifest.345a889d9d4829f84fb742c5b81fbc01.js",
     "service-worker.js": "/identity-app/service-worker.js",
-    "static/css/main.c88684c7.chunk.css.map": "/identity-app/static/css/main.c88684c7.chunk.css.map",
-    "static/js/2.3619dea2.chunk.js.LICENSE.txt": "/identity-app/static/js/2.3619dea2.chunk.js.LICENSE.txt"
+    "static/css/main.0425cab9.chunk.css.map": "/identity-app/static/css/main.0425cab9.chunk.css.map",
+    "static/js/2.0770e371.chunk.js.LICENSE.txt": "/identity-app/static/js/2.0770e371.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9f2a6d9a.js",
-    "static/js/2.3619dea2.chunk.js",
-    "static/css/main.c88684c7.chunk.css",
-    "static/js/main.f76991ef.chunk.js"
+    "static/js/2.0770e371.chunk.js",
+    "static/css/main.0425cab9.chunk.css",
+    "static/js/main.db6963db.chunk.js"
   ]
 }
