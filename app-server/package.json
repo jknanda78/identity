@@ -1,0 +1,51 @@
+{
+  "name": "nodejs-apis",
+  "version": "1.0.0",
+  "description": "identity apis",
+  "main": "index.js",
+  "scripts": {
+    "tscfy": "tsc --p --w .",
+    "babelfy": "nodemon --exec babel-node ./build/index.js",
+    "start": "concurrently \"npm run tscfy\" \"npm run babelfy\"",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jknanda78/identity-app.git"
+  },
+  "keywords": [
+    "graphql",
+    "js",
+    "react",
+    "redux",
+    "typescript",
+    "apollo"
+  ],
+  "author": "Jyoti Kaustuv Nanda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jknanda78/identity-app/issues"
+  },
+  "homepage": "https://github.com/jknanda78/identity-app#readme",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "7.9.0",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.11",
+    "@types/morgan": "^1.9.2",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-transform-assets": "^1.0.2",
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "concurrently": "^5.3.0",
+    "helmet": "^4.4.1",
+    "nodemon": "^2.0.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "~3.7.2"
+  }
+}

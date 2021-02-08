@@ -94,5 +94,6 @@ exports.createNewUser = (request) =>
           authToken,
           sessionId,
         };
+        return { firstName, lastName, phoneNumber:"" };
       });
   });

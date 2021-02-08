@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@actions/*": ["./src/store/actions/*"],
+      "@apis": ["./src/apis/index.tsx"],
+      "@components/*": ["./src/components/*"],
+      "@containers/*": ["./src/pages/containers/*"],
+      "@middlewares/*": ["./src/store/middlewares/*"],
+      "@models/*": ["./src/store/models/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@reducers/*": ["./src/store/reducers/*"],
+      "@store": ["./src/store/index.tsx"],
+      "@store/types": ["./src/store/types/index.tsx"],
+      "@store/utils/*": ["./src/store/utils/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@types/*": ["./src/types/*"],
+      "@templates/*": ["./src/templates/*"],
+      "@utils/*": ["./src/utils/*"]
+    },
+    "typeRoots": ["node_modules/@types", "./src/types"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

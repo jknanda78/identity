@@ -4,8 +4,10 @@ const {
 } = require("../handlers/remove-auth-cookies-handler");
 
 exports.logout = (request, response) => {
-  deleteUserSessionById(request.user.userId).then(() => {
+  const userId = request.cookies.uid;
+
+  deleteUserSessionById(userId).then(() => {
     removeAuthCookiesHandler(request, response);
-    response.status(200).send();
+    response.status(200).send({challenge: "/"});
   });
 };

@@ -1,6 +1,6 @@
-const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const colors = require("colors");
@@ -16,6 +16,9 @@ app.use(helmet());
 
 // using bodyParser to parse JSON bodies into JS objects
 app.use(bodyParser.json());
+
+// using cookieParser to read cookies from request object
+app.use(cookieParser());
 
 // adding morgan to log HTTP requests
 app.use(morgan("combined"));
