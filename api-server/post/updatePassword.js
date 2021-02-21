@@ -1,1 +1,0 @@
-exports.updatePassword = (request, response) => { };
