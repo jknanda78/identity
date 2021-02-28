@@ -58,7 +58,6 @@ export class UserProfilePage extends React.Component<
     const { userProfileState, notification } = this.props;
     const { firstName, lastName, email, phoneNumber } = userProfileState;
     const { notify, notifyMessage, notifyType } = notification;
-    console.log("user-profile-page::", firstName);
     return (
       <UserLayout
         notify={notify}

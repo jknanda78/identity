@@ -31,7 +31,6 @@ const Identity: Middleware = (store: any) => (next: any) => (action: any) => {
         })
     }
   } else if (type === "UPDATE_PROFILE") {
-    console.log("identity middleware:::UPATEPROFILE::", res.data);
     const { firstname, lastname, phonenumber } = res.data;
     store.dispatch({
       payload: {

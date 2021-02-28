@@ -16,15 +16,12 @@ const Home: React.FunctionComponent<HomepageProps> = ({ actions, history, userPr
   const { firstName } = userProfileState;
   const { push } = history;
 
-  console.log("firstName::", firstName);
-
   // Credential Management
   if (navigator.credentials) {
     navigator.credentials.get({
       mediation: "required",
       password: true
     }).then((credential) => {
-      console.log("Fetch credentials", credential);
       if (credential?.type === "password") {
         // auto-login
         actions.httpRequest({

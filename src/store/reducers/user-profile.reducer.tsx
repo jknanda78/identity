@@ -22,7 +22,6 @@ const initialState: State = {
 export const userProfileReducer = handleActions<State, UserProfileModel>(
   {
     [SET_USER_PROFILE]: (state: State, action: Action<UserProfilePayload>) => {
-      console.log("SET_USER_PROFILE::", action.payload);
       const newState = action.payload
         ? Object.assign({}, state, action.payload as any)
         : state;
