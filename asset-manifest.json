@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/identity-app/static/css/main.5dbf9f31.chunk.css",
-    "main.js": "/identity-app/static/js/main.9b522e49.chunk.js",
-    "main.js.map": "/identity-app/static/js/main.9b522e49.chunk.js.map",
-    "runtime-main.js": "/identity-app/static/js/runtime-main.9f2a6d9a.js",
-    "runtime-main.js.map": "/identity-app/static/js/runtime-main.9f2a6d9a.js.map",
-    "static/js/2.de78f208.chunk.js": "/identity-app/static/js/2.de78f208.chunk.js",
-    "static/js/2.de78f208.chunk.js.map": "/identity-app/static/js/2.de78f208.chunk.js.map",
-    "index.html": "/identity-app/index.html",
-    "precache-manifest.547c0f18207952989605866e7830d787.js": "/identity-app/precache-manifest.547c0f18207952989605866e7830d787.js",
-    "service-worker.js": "/identity-app/service-worker.js",
-    "static/css/main.5dbf9f31.chunk.css.map": "/identity-app/static/css/main.5dbf9f31.chunk.css.map",
-    "static/js/2.de78f208.chunk.js.LICENSE.txt": "/identity-app/static/js/2.de78f208.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.f14175b8.chunk.css",
+    "main.js": "/static/js/main.89d89db4.chunk.js",
+    "main.js.map": "/static/js/main.89d89db4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6ce803de.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6ce803de.js.map",
+    "static/js/2.9c433a16.chunk.js": "/static/js/2.9c433a16.chunk.js",
+    "static/js/2.9c433a16.chunk.js.map": "/static/js/2.9c433a16.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3e64420d21b5e1c55274eedb2bb33d93.js": "/precache-manifest.3e64420d21b5e1c55274eedb2bb33d93.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.f14175b8.chunk.css.map": "/static/css/main.f14175b8.chunk.css.map",
+    "static/js/2.9c433a16.chunk.js.LICENSE.txt": "/static/js/2.9c433a16.chunk.js.LICENSE.txt",
+    "static/media/home-1.jpg": "/static/media/home-1.01e6eb45.jpg",
+    "static/media/home-2.jpg": "/static/media/home-2.7dbed7e2.jpg",
+    "static/media/home-3.jpg": "/static/media/home-3.78f06cfd.jpg",
+    "static/media/home-4.jpg": "/static/media/home-4.5aad7231.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9f2a6d9a.js",
-    "static/js/2.de78f208.chunk.js",
-    "static/css/main.5dbf9f31.chunk.css",
-    "static/js/main.9b522e49.chunk.js"
+    "static/js/runtime-main.6ce803de.js",
+    "static/js/2.9c433a16.chunk.js",
+    "static/css/main.f14175b8.chunk.css",
+    "static/js/main.89d89db4.chunk.js"
   ]
 }
