@@ -110,13 +110,12 @@
   },
   "scripts": {
     "client": "nodemon scripts/start.js",
-    "server": "nodemon server.js",
-    "services": "nodemon ../identity-services/index.js",
+    "services": "NODE_ENV=production node ../identity-services/index.js",
     "mongodb": "mongod --dbpath=../identity-services/data/db",
     "start": "concurrently \"npm run services\" \"npm run client\" \"npm run mongodb\"",
     "build": "node scripts/build.js",
     "prod-build": "serve --single build",
-    "prod": "rm -rf ./build && npm run build && concurrently \"npm run prod-build\" \"npm run services\" \"npm run mongodb\"",
+    "prod": "rm -rf ./build && npm run build && concurrently \"npm run prod-build\" \"npm run services\"",
     "test": "node scripts/test.js",
     "deploy": "gh-pages -d build"
   },
