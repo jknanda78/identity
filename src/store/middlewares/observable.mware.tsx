@@ -13,28 +13,26 @@ const Observable: Middleware = (store: any) => (next: any) => (action: any) => {
   const URL = NODE_ENV === "production" ? `${REACT_APP_API_BASE_URL}${url}` : url;
 
   if (type === HTTP_REQUEST) {
-    setTimeout(() => {
-      axios({method, url: URL, data})
-        .then((res) => {
-          store.dispatch({
-            type: HTTP_REQUEST_SUCCESS,
-            payload: res
-          });
-
-          if (success) {
-            store.dispatch({
-              type: success,
-              payload: {data, res}
-            });
-          }
-        })
-        .catch((err) => {
-          store.dispatch({
-            type: HTTP_REQUEST_FAILURE,
-            payload: err
-          });
+    axios({method, url: URL, data})
+      .then((res) => {
+        store.dispatch({
+          type: HTTP_REQUEST_SUCCESS,
+          payload: res
         });
-    },2000);
+
+        if (success) {
+          store.dispatch({
+            type: success,
+            payload: {data, res}
+          });
+        }
+      })
+      .catch((err) => {
+        store.dispatch({
+          type: HTTP_REQUEST_FAILURE,
+          payload: err
+        });
+      });
   }
 
   return next(action);

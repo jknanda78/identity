@@ -30,6 +30,14 @@ const Identity: Middleware = (store: any) => (next: any) => (action: any) => {
           console.log("Error preventing silent access.", e);
         })
     }
+    store.dispatch({
+      payload: {
+        firstName: "",
+        lastName: "",
+        phoneNumber: ""
+      },
+      type: SET_USER_PROFILE
+    });
   } else if (type === "UPDATE_PROFILE") {
     const { firstname, lastname, phonenumber } = res.data;
     store.dispatch({
