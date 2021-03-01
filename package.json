@@ -1,10 +1,10 @@
 {
-  "name": "identity-app",
+  "name": "identity",
   "version": "0.1.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jknanda78/identity-app.git"
+    "url": "git+https://github.com/jknanda78/identity.git"
   },
   "keywords": [
     "graphql",
@@ -17,7 +17,7 @@
   "author": "Jyoti Kaustuv Nanda",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jknanda78/identity-app/issues"
+    "url": "https://github.com/jknanda78/identity/issues"
   },
   "dependencies": {
     "@babel/core": "7.9.0",
@@ -117,10 +117,10 @@
     "prod-build": "serve --single build",
     "prod": "rm -rf ./build && npm run build && concurrently \"npm run prod-build\" \"npm run services\"",
     "test": "node scripts/test.js",
-    "deploy": "gh-pages -d build"
+    "deploy": "rm -rf ./build && npm run build && gh-pages -d build"
   },
   "proxy": "http://services.jsfunfoo.com:4000",
-  "homepage": "",
+  "homepage": "https://jknanda78.github.io/identity/",
   "eslintConfig": {
     "extends": "react-app"
   },

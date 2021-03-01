@@ -9,8 +9,8 @@ import {
 const Observable: Middleware = (store: any) => (next: any) => (action: any) => {
   const { type, payload = {} } = action || {};
   const { data, method, url, success } = payload;
-  const { API_BASE_URL, NODE_ENV } = process.env;
-  const URL = NODE_ENV === "production" ? `${API_BASE_URL}${url}` : url;
+  const { REACT_APP_API_BASE_URL, NODE_ENV } = process.env;
+  const URL = NODE_ENV === "production" ? `${REACT_APP_API_BASE_URL}${url}` : url;
 
   if (type === HTTP_REQUEST) {
     setTimeout(() => {
