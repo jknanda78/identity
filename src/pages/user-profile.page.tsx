@@ -50,7 +50,8 @@ export class UserProfilePage extends React.Component<
     this.props.actions.httpRequest({
       data: {},
       method: "post",
-      url: "/account/logout"
+      url: "/account/logout",
+      success: "USER_LOGOUT"
     });
   };
 

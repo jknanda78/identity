@@ -112,7 +112,7 @@
     "client": "nodemon scripts/start.js",
     "services": "NODE_ENV=production node ../identity-services/index.js",
     "mongodb": "mongod --dbpath=../identity-services/data/db",
-    "start": "concurrently \"node ../identity-services/index.js\" \"npm run client\" \"npm run mongodb\"",
+    "start": "concurrently \"nodemon ../identity-services/index.js\" \"npm run client\" \"npm run mongodb\"",
     "build": "node scripts/build.js",
     "prod-build": "serve --single build",
     "prod": "rm -rf ./build && npm run build && concurrently \"npm run prod-build\" \"npm run services\"",
