@@ -1,27 +1,21 @@
 import { handleActions, Action } from "redux-actions";
 import {
-  UserProfileModel,
-  UserProfilePayload,
+  UserProfileModel
 } from "../models/user-profile.model";
 import { SET_USER_PROFILE } from "../types";
 
-export type State = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-};
+export type State = UserProfileModel;
 
 const initialState: State = {
-  firstName: "",
-  lastName: "",
+  firstname: "",
+  lastname: "",
   email: "",
-  phoneNumber: "",
+  phonenumber: "",
 };
 
 export const userProfileReducer = handleActions<State, UserProfileModel>(
   {
-    [SET_USER_PROFILE]: (state: State, action: Action<UserProfilePayload>) => {
+    [SET_USER_PROFILE]: (state: State, action: Action<UserProfileModel>) => {
       const newState = action.payload
         ? Object.assign({}, state, action.payload as any)
         : state;

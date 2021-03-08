@@ -13,19 +13,20 @@ const Observable: Middleware = (store: any) => (next: any) => (action: any) => {
   const URL = NODE_ENV === "production" ? `${REACT_APP_API_BASE_URL}${url}` : url;
 
   if (type === HTTP_REQUEST) {
-    axios({method, url: URL, data})
+    return axios({method, url: URL, data})
       .then((res) => {
+        // Update redux state
+        if (success) {
+          store.dispatch({
+            type: success,
+            payload: res.data
+          });
+        }
+        // Navigation | res.challenge
         store.dispatch({
           type: HTTP_REQUEST_SUCCESS,
           payload: res
         });
-
-        if (success) {
-          store.dispatch({
-            type: success,
-            payload: {data, res}
-          });
-        }
       })
       .catch((err) => {
         store.dispatch({

@@ -57,14 +57,14 @@ export class UserProfilePage extends React.Component<
 
   render() {
     const { userProfileState, notification } = this.props;
-    const { firstName, lastName, email, phoneNumber } = userProfileState;
+    const { firstname, lastname, email, phonenumber } = userProfileState;
     const { notify, notifyMessage, notifyType } = notification;
     return (
       <UserLayout
         notify={notify}
         notifyMessage={notifyMessage}
         notifyType={notifyType}
-        title={`Welcome ${firstName}`}
+        title={`Welcome ${firstname}`}
       >
         <div className="editProfile">
           <div>
@@ -82,14 +82,14 @@ export class UserProfilePage extends React.Component<
                   id="first_name"
                   label="First name (required)"
                   type="text"
-                  value={firstName}
+                  value={firstname}
                 />
                 <InputField
                   editable={this.state.nameEditable}
                   id="last_name"
                   label="Last name (required)"
                   type="text"
-                  value={lastName}
+                  value={lastname}
                 />
                 <div className="buttons">
                   {this.state.nameEditable ? (
@@ -183,7 +183,7 @@ export class UserProfilePage extends React.Component<
                   id="phone_number"
                   label="Phone number (required)"
                   type="email"
-                  value={phoneNumber}
+                  value={phonenumber}
                 />
                 <div className="buttons">
                   {this.state.phoneEditable ? (

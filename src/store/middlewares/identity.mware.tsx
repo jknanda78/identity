@@ -1,16 +1,21 @@
 import { Middleware } from "redux";
-import { SET_USER_PROFILE } from "../types"
+import {
+  PREVENT_SILENT_ACCESS,
+  SET_USER_PROFILE,
+  STORE_PASSWORD_CREDENTIAL
+} from "@store/types"
 
 const Identity: Middleware = (store: any) => (next: any) => (action: any) => {
   const { type, payload = {} } = action || {};
-  const { data, res } = payload;
 
-  if (type === "CREATE_PASSWORD_CREDENTIAL") {
-    if (navigator.credentials) {
+  if (type === STORE_PASSWORD_CREDENTIAL) {
+    // Store credentials
+    if (navigator.credentials && payload.credentials) {
+      const { id, name, password } = payload.credentials;
       const signup_credentials = new PasswordCredential({
-        id: data.email,
-        name: data.email,
-        password: data.pwd
+        id,
+        name,
+        password
        });
       navigator.credentials.store(signup_credentials)
         .then(() => {
@@ -20,7 +25,8 @@ const Identity: Middleware = (store: any) => (next: any) => (action: any) => {
           console.log("Error storing credentials", e);
         });
     }
-  } else if (type === "USER_LOGOUT") {
+  } else if (type === PREVENT_SILENT_ACCESS) {
+    // Prevent silent access
     if (navigator.credentials) {
       navigator.credentials.preventSilentAccess()
         .then(() => {
@@ -30,21 +36,12 @@ const Identity: Middleware = (store: any) => (next: any) => (action: any) => {
           console.log("Error preventing silent access.", e);
         })
     }
+    // Update redux state
     store.dispatch({
       payload: {
-        firstName: "",
-        lastName: "",
-        phoneNumber: ""
-      },
-      type: SET_USER_PROFILE
-    });
-  } else if (type === "UPDATE_PROFILE") {
-    const { firstname, lastname, phonenumber } = res.data;
-    store.dispatch({
-      payload: {
-        firstName: firstname,
-        lastName: lastname,
-        phoneNumber: phonenumber
+        firstname: "",
+        lastname: "",
+        phonenumber: ""
       },
       type: SET_USER_PROFILE
     });

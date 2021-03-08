@@ -6,6 +6,7 @@ import { FormFields } from "@models/form.model";
 import Link from "@components/containers/link.container";
 import PrimaryButton from "@components/containers/primary-button.container";
 import Form from "@components/containers/form.container";
+import { SET_USER_PROFILE } from "@store/types";
 
 type SignInProps = {
   actions: any;
@@ -33,7 +34,7 @@ class SignInPage extends React.Component<SignInProps> {
             },
             method: "post",
             url: "/account/login",
-            success: "UPDATE_PROFILE"
+            success: SET_USER_PROFILE
           });
         }
       }).catch((e) => {
@@ -54,7 +55,7 @@ class SignInPage extends React.Component<SignInProps> {
         },
         method: "post",
         url: "/account/login",
-        success: "UPDATE_PROFILE"
+        success: SET_USER_PROFILE
       });
     }
   };

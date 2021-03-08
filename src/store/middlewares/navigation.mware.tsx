@@ -9,7 +9,7 @@ const Navigation: Middleware = (store: any) => (next: any) => (action: any) => {
     const { challenge } = payload;
     store.dispatch(push(challenge));
   } else if (type === HTTP_REQUEST_SUCCESS && payload.data) {
-    const { challenge, ...data } = payload?.data || {};
+    const { challenge } = payload?.data || {};
     store.dispatch(push(challenge));
   }
 

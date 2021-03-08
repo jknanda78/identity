@@ -46,8 +46,9 @@
   padding: 10px 0;
 }
 
-.side-panel li div {
-  text-align: left;
+.side-panel li div.greet-user {
+  text-align: center;
+  font-weight: 700;
 }
 
 .main .left-panel {

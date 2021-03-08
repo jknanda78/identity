@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Redirect, Route } from "react-router-dom";
 import Home from "@pages/containers/home.container";
 import SignIn from "@pages/containers/sign-in.container";
 import CreateAccount from "@pages/containers/create-account.container";
@@ -8,9 +8,14 @@ import UserProfile from "@pages/containers/user-profile.container";
 export default () => {
   return (
     <Switch>
+      <Redirect
+        exact
+        from="/"
+        to="/home"
+      />
       <Route
         exact
-        path="/"
+        path="/home"
         component={Home}
         key="account-home"
       />

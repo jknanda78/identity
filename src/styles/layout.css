@@ -122,7 +122,7 @@ main {
 }
 
 /* Desktop */
-@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+@media screen and (min-device-width: 415px) {
   .wrapper {
     justify-content: center;
     width: 320px;

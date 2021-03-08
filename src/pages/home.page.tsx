@@ -1,6 +1,7 @@
 import React from "react";
 import { UserProfileModel } from "@models/user-profile.model";
 import Link from "@components/containers/link.container";
+import { PREVENT_SILENT_ACCESS, SET_USER_PROFILE } from "@store/types";
 import homepic_1 from "../assets/img/home-1.jpg";
 import homepic_2 from "../assets/img/home-2.jpg";
 import homepic_3 from "../assets/img/home-3.jpg";
@@ -13,36 +14,63 @@ type HomepageProps = {
 };
 
 class Home extends React.Component<HomepageProps> {
-  componentDidMount() {
+  autoSignIn = () => {
     const { actions } = this.props;
-
-    // Credential Management
+    // Get credentials | Credential Management API
     if (navigator.credentials) {
       navigator.credentials.get({
         mediation: "required",
         password: true
       }).then((credential) => {
         if (credential?.type === "password") {
-          // auto-login
+          // Auto-login
           actions.httpRequest({
             data: {
               username: credential.id,
               password: credential.password
             },
             method: "post",
-            url: "/account/login"
+            url: "/account/login",
+            success: SET_USER_PROFILE
           });
         }
       }).catch((e) => {
         console.log("Fetch credentials error", e);
       });
     }
+  };
+
+  componentDidMount() {
+    if (!this.props.userProfileState.firstname) {
+      this.autoSignIn();
+    }
   }
+
+  shouldComponentUpdate(nexProps: any) {
+    if (this.props.userProfileState.firstname !== nexProps.userProfileState.firstname) {
+      return true;
+    }
+    return false;
+  }
+
+  componentDidUpdate() {
+    if (!this.props.userProfileState.firstname) {
+      this.autoSignIn();
+    }
+  }
+
+  handleOnLogout = () => {
+    this.props.actions.httpRequest({
+      data: {},
+      method: "post",
+      url: "/account/logout",
+      success: PREVENT_SILENT_ACCESS
+    });
+  };
 
   render() {
     const { history, userProfileState } = this.props;
-    const { firstName } = userProfileState;
-
+    const { firstname } = userProfileState;
     return (
       <div className="profile">
         <header>
@@ -74,59 +102,48 @@ class Home extends React.Component<HomepageProps> {
           </section>
           <section className="side-panel">
             <ul>
-              {firstName ? (
-                <>
+              {
+                firstname ? (
                   <li>
-                    {firstName}
+                    <div className="greet-user">Welcome {firstname}</div>
                   </li>
-                  <li>
-                    <Link
-                      id="trackOrderLink"
-                      value="Track orders"
-                    />
-                  </li>
+                ) : (
                   <li>
                     <Link
-                      id="accountLink"
-                      value="Account"
+                      id="createAccountLink"
+                      value="Sign in"
+                      onClick={() => history.push("/login")}
                     />
                   </li>
-                  <li>
-                    <Link
-                      id="helpLink"
-                      value="Help"
-                    />
-                  </li>
-                </>
-              ) : (
-                  <>
-                    <li>
-                      <Link
-                        id="createAccountLink"
-                        value="Sign in"
-                        onClick={() => history.push("/login")}
-                      />
-                    </li>
-                    <li>
-                      <Link
-                        id="trackOrderLink"
-                        value="Track orders"
-                      />
-                    </li>
-                    <li>
-                      <Link
-                        id="accountLink"
-                        value="Account"
-                      />
-                    </li>
-                    <li>
-                      <Link
-                        id="helpLink"
-                        value="Help"
-                      />
-                    </li>
-                  </>
-                )}
+                )
+              }
+              <li>
+                <Link
+                  id="trackOrderLink"
+                  value="Track orders"
+                />
+              </li>
+              <li>
+                <Link
+                  id="accountLink"
+                  value="Account"
+                />
+              </li>
+              <li>
+                <Link
+                  id="helpLink"
+                  value="Help"
+                />
+              </li>
+              {
+                firstname ? (
+                  <Link
+                    id="signoutLink"
+                    value="Sign out"
+                    onClick={this.handleOnLogout}
+                  />
+                ) : null
+              }
             </ul>
           </section>
         </section>

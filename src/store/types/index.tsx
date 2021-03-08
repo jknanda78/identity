@@ -1,6 +1,7 @@
 /**
  * Redux Actions
  * Patterns:
+ * Credential Mgt - @@cred/<ACTION_NAME>
  * Post - @@post/<ACTION_NAME>
  * Get - @@get/<ACTION_NAME>
  * Put - @@put/<ACTION_NAME>
@@ -12,6 +13,9 @@
 export const NAVIGATE = "@@navigate2/APP_ROUTE";
 // User Profile
 export const SET_USER_PROFILE = "@@post/SET_USER_PROFILE";
+// Credential Management API
+export const STORE_PASSWORD_CREDENTIAL = "@@cred/STORE_PASSWORD";
+export const PREVENT_SILENT_ACCESS = "@@cred/PREVENT_SILENT_ACCESS";
 // Notification
 export const SET_GLOBAL_NOTIFICATION = "@@notify/SET_GLOBAL_NOTIFICATION";
 export const UNSET_GLOBAL_NOTIFICATION = "@@notify/UNSET_GLOBAL_NOTIFICATION";

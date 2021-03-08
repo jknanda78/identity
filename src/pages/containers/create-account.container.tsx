@@ -4,8 +4,10 @@ import CreateAccountPage from "@pages/create-account.page";
 import { RootState } from "@reducers/index";
 import * as notifyActions from "@actions/global-notification.action";
 import * as observableActions from "@actions/observable.action";
+import * as credActions from "@actions/cred.action";
 
 const actions: any = Object.assign({},
+  credActions,
   notifyActions,
   observableActions);
 

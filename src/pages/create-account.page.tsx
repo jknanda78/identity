@@ -6,6 +6,7 @@ import Link from "@components/containers/link.container";
 import PrimaryButton from "@components/containers/primary-button.container";
 import Form from "@components/containers/form.container";
 import { FormFields } from "@models/form.model";
+import { SET_USER_PROFILE } from "@store/types";
 
 type CreateAccountProps = {
   actions: any;
@@ -19,17 +20,28 @@ const CreateAccount: React.FunctionComponent<CreateAccountProps> = (props) => {
 
   // Form submit handler
   const handleOnSubmit = (e: React.SyntheticEvent, fields: FormFields, isFormValid: boolean) => {
+    const { actions } = props;
+    const { first_name, last_name, email_address, pwd } = fields;
+
     if (isFormValid) {
-      props.actions.httpRequest({
+      actions.httpRequest({
         data: {
-          firstname: fields.first_name,
-          lastname: fields.last_name,
-          username: fields.email_address,
-          password: fields.pwd
+          firstname: first_name,
+          lastname: last_name,
+          username: email_address,
+          password: pwd
         },
         method: "post",
         url: "/account/createAccount",
-        success: "CREATE_PASSWORD_CREDENTIAL"
+        success: SET_USER_PROFILE
+      }).then(() => {
+        actions.storePwdCredential({
+          credentials: {
+            id: email_address,
+            name: email_address,
+            password: pwd
+          }
+        });
       });
     }
   };
