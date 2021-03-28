@@ -4,6 +4,7 @@ import Home from "@pages/containers/home.container";
 import SignIn from "@pages/containers/sign-in.container";
 import CreateAccount from "@pages/containers/create-account.container";
 import UserProfile from "@pages/containers/user-profile.container";
+import AuthFrame from "@components/auth-frame";
 
 export default () => {
   return (
@@ -36,6 +37,12 @@ export default () => {
         path="/user/profile"
         component={UserProfile}
         key="acount-user-profile"
+      />
+      <Route
+        exact
+        path="/authFrame"
+        component={AuthFrame}
+        key="auth-frame-integration"
       />
       </Switch>
   );

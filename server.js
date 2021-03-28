@@ -1,40 +1,56 @@
-const path = require("path");
+// NODE_ENV=development npx babel-node --presets @babel/preset-env,@babel/preset-react -- ./server.js
 const express = require("express");
-const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const colors = require("colors");
+const cors = require("cors");
 // SSR with React
-// const renderToString = require("react-dom").renderToString;
+const React = require("react");
+const renderToString = require("react-dom/server").renderToString;
 // SSR HTML template
-// const html = require("./ssr-html-template");
+const htmlTemplate = require("./src/templates/ssr.simple.template").default;
 // SSR of client side components
-// const SignIn = require("../src/containers/sign-in.container");
-// const UserProfile = require("../src/containers/user-profile.container");
-
+const HelloWorld = require("./src/pages/ssr/hello-world").default;
 // defining the Express app
 const app = express();
 // defining port
 const PORT = process.env.PORT || 5000;
 
-/**
- * CRA
- * Using production build
- */
-app.use(express.static(path.join(__dirname, "build")));
-
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-
 // adding Helmet to enhance your API"s security
 app.use(helmet());
 
 // using bodyParser to parse JSON bodies into JS objects
-app.use(bodyParser.json());
+app.use(express.json());
+
+// using cookieParser to read cookies from request object
+app.use(cookieParser());
 
 // adding morgan to log HTTP requests
 app.use(morgan("combined"));
+
+// using cors to handle cross domain requests
+app.use(cors());
+
+app.all("*", (req, res, next) => {
+  //cors
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Origin, Authorization, X-Requested-With, X-Custom-Header");
+  res.header("Access-Control-Allow-Credentials", true);
+
+  // iframe | x-frame-options is not needed if `frame-ancestors` sent
+  res.header("Content-Security-Policy", "frame-ancestors http://*.jsfunfoo.com:*");
+  next();
+});
+
+app.get("/", (req, res) => {
+  const guest_cu_cookie = req.cookies?.guest_cu;
+  const guest_info = guest_cu_cookie?.split(":") || [];
+  const [email, firstName, lastName] = guest_info;
+  const markup = renderToString(<HelloWorld email={email} firstName={firstName} lastName={lastName} />);
+  res.send(htmlTemplate({ body: markup }));
+});
 
 // starting the server
 app.listen(PORT, () => {
